@@ -65,7 +65,7 @@ def search_profile(usernames_list):
     driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[2]/div[2]/div/a[1]').click()
     sleep(4)
 
-    driver.find_element_by_xpath('//*[@id="react-root"]/section/main/div/div[3]/article/div[1]/div/div[1]/div[2]/a').click()
+    driver.find_element_by_xpath('PUBLICATION-XPATH').click()
     sleep(4)
 
     for user in usernames_list:

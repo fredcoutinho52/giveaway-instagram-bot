@@ -17,6 +17,21 @@ pip install selenium
 
 ### Change operational system
 
+```python
+oper_sys = 'YOUR-OPERATIONAL-SYSTEM'
 ```
-oper_sys = 'windows' #change for your operational system 
+
+### Put necessary data
+
+```python
+# user data and draw's profile
+username = 'YOUR-USERNAME'
+password = 'YOUR-PASSWORD'
+profile = 'DRAW-PROFILE'
+```
+
+### Choose publication
+
+```python
+driver.find_element_by_xpath('PUBLICATION-XPATH').click()
 ```

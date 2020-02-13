@@ -3,14 +3,14 @@ from time import sleep
 import math
 
 # path for the chromedriver
-oper_sys = 'windows'
+oper_sys = 'YOUR-OPERATIONAL-SYSTEM'
 driver_path = oper_sys.lower() + '/chromedriver.exe'
 driver = webdriver.Chrome(executable_path = driver_path)
 
 # user data and draw's profile
-username = 'fredcoutinho52'
-password = 'fredflor3414'
-profile = 'igr.brc'
+username = 'YOUR-USERNAME'
+password = 'YOUR-PASSWORD'
+profile = 'DRAW-PROFILE'
 
 # login on instagram
 def access_account():

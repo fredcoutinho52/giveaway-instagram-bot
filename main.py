@@ -3,7 +3,7 @@ from time import sleep
 import math
 
 # path for the chromedriver
-oper_sys = 'YOUR-OPERATIONAL-SYSTEM'
+oper_sys = 'YOUR-OS'
 driver_path = oper_sys.lower() + '/chromedriver.exe'
 driver = webdriver.Chrome(executable_path = driver_path)
 
@@ -50,29 +50,46 @@ def get_followers():
     # get each username in the followers's list
     usernames_elements = list_to_scroll.find_elements_by_tag_name('a')
     usernames_list = [user.text for user in usernames_elements if len(user.text) > 0]
-    sleep(1)
+    sleep(2)
+
+    driver.refresh()
+    sleep(2)
 
     search_profile(usernames_list)
 
 # search the draw's profile and publication
 def search_profile(usernames_list):
-    driver.refresh()
-    sleep(2)
-
     driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input').send_keys(profile)
     sleep(2)
 
     driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[2]/div[2]/div/a[1]').click()
     sleep(4)
 
-    driver.find_element_by_xpath('PUBLICATION-XPATH').click()
-    sleep(4)
+    # draw's post
+    driver.find_element_by_xpath('DRAW-POST-XPATH').click()
+    sleep(6)
 
     for user in usernames_list:
-        driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/textarea').click()
+        can_press = True
+
+        while can_press:
+            try:
+                # click on comment area
+                driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/textarea').click()
+                sleep(4)
+                can_press = False
+            except:
+                # press post button if comment is blocked
+                driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/button').click()
+                sleep(4)
+        
+        # write follower's username
         driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/textarea').send_keys('@' + user)
-        driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/textarea').send_keys(Keys.ENTER)
-        sleep(1)
+        sleep(2)
+        
+        # press post button
+        driver.find_element_by_xpath('/html/body/div[4]/div[2]/div/article/div[2]/section[3]/div/form/button').click()
+        sleep(2)
 
 
 access_account()

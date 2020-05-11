@@ -24,7 +24,6 @@ oper_sys = 'YOUR-OPERATIONAL-SYSTEM'
 ### Put necessary data
 
 ```python
-# user data and draw's profile
 username = 'YOUR-USERNAME'
 password = 'YOUR-PASSWORD'
 profile = 'DRAW-PROFILE'

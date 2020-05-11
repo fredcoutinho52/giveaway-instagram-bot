@@ -24,13 +24,7 @@ oper_sys = 'YOUR-OPERATIONAL-SYSTEM'
 ### Put necessary data
 
 ```python
-username = 'YOUR-USERNAME'
-password = 'YOUR-PASSWORD'
-profile = 'DRAW-PROFILE'
-```
-
-### Choose publication
-
-```python
-driver.find_element_by_xpath('PUBLICATION-XPATH').click()
+username = 'YOUR-USERNAME-HERE'
+password = 'YOUR-PASSWORD-HERE'
+post_link = 'POST-LINK-HERE'
 ```

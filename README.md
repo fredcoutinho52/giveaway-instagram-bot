@@ -1,30 +1,18 @@
-# Bot for Instagram's draws
-A tool for automatization of participation in instagram's draws
+# Instagram's Giveaway Bot
+
+A tool for automatization of participation in instagram's giveaways.
 
 ## Used tools
+
 * [Pip](https://pypi.org/project/pip/)
 * [Python 3](https://www.python.org/)
 * [Selenium](https://selenium.dev/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-## How to use
+## How to Use
 
-### Install dependencies
+TODO
 
-```
-pip install selenium
-```
+## License
 
-### Change operational system
-
-```python
-oper_sys = 'YOUR-OPERATIONAL-SYSTEM'
-```
-
-### Put necessary data
-
-```python
-username = 'YOUR-USERNAME-HERE'
-password = 'YOUR-PASSWORD-HERE'
-post_link = 'POST-LINK-HERE'
-```
+[MIT License](https://opensource.org/licenses/MIT)

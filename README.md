@@ -2,7 +2,7 @@
 
 A tool for automatization of participation in instagram's giveaways.
 
-## Used tools
+## Made with
 
 * [Pip](https://pypi.org/project/pip/)
 * [Python](https://www.python.org/)
@@ -10,7 +10,37 @@ A tool for automatization of participation in instagram's giveaways.
 
 ## How to Use
 
-TODO
+#### Clone this repository
+```bash
+git clone https://github.com/fredcoutinho52/web-scraping.git
+```
+
+#### Init the virtual enviroment
+```bash
+python -m venv env
+```
+
+#### Activate the virtual enviroment
+```bash
+env\Scripts\activate (Windows)
+
+source env/bin/activate (Linux)
+```
+
+#### Install the dependencies
+```bash
+pip install -r requirements.txt
+```
+
+#### Run the script
+```bash
+python main.py
+```
+
+#### Deactivate the virtual enviroment
+```bash
+deactivate
+```
 
 ## License
 

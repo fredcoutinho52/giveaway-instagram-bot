@@ -1,22 +1,21 @@
 from selenium import webdriver
 from time import sleep
 import math
+import sys
 
-# path for the chromedriver
-oper_sys = 'YOUR-OS-HERE'
-driver_path = oper_sys.lower() + '/chromedriver.exe'
-driver = webdriver.Chrome(executable_path = driver_path)
+# user data and giveaway post link
+print('Please provide the following information')
+username = input('Instagram username or email: ')
+password = input('Instagram password: ')
+post_link = input('Giveaway post link: ')
 
-# user data and draw's profile
-username = "YOUR-USERNAME-HERE"
-password = "YOUR-PASSWORD-HERE"
-post_link = "POST-LINK-HERE"
+# initing driver and opening instagram
+driver = webdriver.Chrome(executable_path='chromedriver')
+driver.get("https://www.instagram.com")
+sleep(5)
 
 # login on instagram
 def access_account():
-    driver.get("https://www.instagram.com")
-    sleep(3)
-
     print('Logging on Instagram...')
     driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input').send_keys(username)
     driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input').send_keys(password)
@@ -30,7 +29,7 @@ def access_account():
 
 # capture the followers's usernames
 def get_followers():
-    print("Accessing follower's list...")
+    print('Accessing list of followers...')
 
     driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[3]/div/div[5]/a').click()
     sleep(3)
@@ -47,28 +46,25 @@ def get_followers():
     sleep(2)
 
     # scroll the followers's list to the end
-    print("Getting follower's names...")
+    print('Getting names of followers...')
     scroll_times = int(math.ceil(int(followers_number) / 8))
     for i in range(scroll_times):
         driver.execute_script('document.querySelector(".PZuss").scrollIntoView(false)')
         sleep(2)
 
     # get each username in the followers's list
-    print("Putting names in a list...")
+    print('Putting names in an array...')
     usernames_elements = list_to_scroll.find_elements_by_tag_name('a')
     usernames_list = [user.text for user in usernames_elements if len(user.text) > 0]
     sleep(2)
 
-    driver.refresh()
-    sleep(2)
-
     search_profile(usernames_list)
 
-# search the draw's profile and publication
+# go to giveaway post and start commenting
 def search_profile(usernames):
     driver.get(post_link)
 
-    print("Commenting on post...")
+    print('Commenting on post...')
     for i in range(0, len(usernames), 3):
         can_press = True
 
@@ -91,6 +87,5 @@ def search_profile(usernames):
         # press post button
         driver.find_element_by_xpath('/html/body/div[1]/section/main/div/div[1]/article/div[2]/section[3]/div/form/button').click()
         sleep(2)
-
 
 access_account()

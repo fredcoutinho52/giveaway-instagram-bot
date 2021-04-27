@@ -1,1 +1,6 @@
+# virtual enviroment folder
 env
+
+# driver for chrome
+chromedriver.exe
+chromedriver
